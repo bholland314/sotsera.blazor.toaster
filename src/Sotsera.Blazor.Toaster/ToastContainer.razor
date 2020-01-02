@@ -3,7 +3,8 @@
     Licensed under the MIT License. See License.txt in the project root for license information.
 *@
 @inherits ToastContainerModel
-<div id="toast-container" class="@Class">
+@*id="@ContainerId"*@
+<div id="@ContainerId" class="@Class">
     @foreach (var toast in Toasts)
     {
         <ToastElement @key="toast" Toast="@toast"></ToastElement>

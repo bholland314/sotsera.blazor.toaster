@@ -1,0 +1,97 @@
+/* --------------------------------------------------- */
+// CUSTOM VARIABLES
+/* --------------------------------------------------- */
+
+
+/* 
+TYPOGRAPHY 
+*/
+$font-family-sans:      "Roboto";
+$font-family-sans-alt:  "Gotham";
+$font-family-serif:     serif;
+$font-family-data:      "alpinGothicRegular";
+
+
+
+/* 
+COLORS    
+*/
+
+// jr brand colors
+$clr-brand-1        :       #4B0057;
+$clr-brand-2        :       #4E1C78;
+$clr-brand-3        :       #40468D;
+$clr-brand-4        :       #186891;
+$clr-brand-5        :       #F18268;
+
+$clr-brand-default  :       #EEEDEF;
+$clr-brand-info     :       #6A70CF;
+$clr-brand-success  :       #36BE9E;
+$clr-brand-warning  :       $clr-brand-5 !default; 
+$clr-brand-danger   :       #BD4F6C;
+
+/*-----------------------------------------------*/
+
+//social media colors
+$clr-facebook       :       #3b5998;
+$clr-twitter        :       #00aced;
+$clr-googleplus     :       #dd4b39;
+$clr-youtube        :       #bb0000;
+$clr-linkedin       :       #007bb6;
+$clr-instagram      :       #517fa4;
+$clr-pinterest      :       #cb2027;
+$clr-flickr         :       #ff0084;
+
+
+/* 
+ANIMATION 
+*/
+//$animation-curve-ease: cubic-bezier(0.25, .1, 0.25, 1); 
+//$animation-curve-ease: cubic-bezier(0.25, .1, 0, 1); 
+$animation-curve-ease: cubic-bezier(0,.4,0,1); 
+
+$animation-curve-default: $animation-curve-ease !default;
+
+
+/*  
+SIDEBARS (DRAWERS)
+*/
+$drawer-width:  250;
+
+
+
+/* --------------------------------------------------- */
+// BOOTSTRAP THEME SPECIFC VARIABLE OVERRIDES 
+/* --------------------------------------------------- */
+
+
+// COLORS
+$primary:       $clr-brand-2;
+$secondary:     $clr-brand-default;
+$success:       $clr-brand-success;
+$info:          $clr-brand-info;
+$warning:       $clr-brand-warning;
+$danger:        $clr-brand-danger;
+
+$gray-100: #faf9fa;
+$gray-200: #EEEDEF;
+$gray-300: #D4D2D6;
+$gray-400: #C6C3C8;
+$gray-500: #B6B1B9;
+$gray-600: #A39EA7;
+$gray-700: #8D8792;
+$gray-800: #716A77;
+$gray-900: #453D4C;
+
+//COLOR CONTRASTS OVERRIDE TO WHITE TEXT
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold:  175;
+
+// TYPOGRAPHY
+$font-size-base:    .9rem;
+	
+
+
+
+
+

@@ -17,8 +17,9 @@ namespace Sotsera.Blazor.Toaster
                 ? Toaster.ShownToasts.Reverse()
                 : Toaster.ShownToasts;
 
+        protected string ContainerId => Toaster.Configuration.ContainerId;
         protected string Class => Toaster.Configuration.PositionClass;
-
+        
         protected override void OnInitialized()
         {
             base.OnInitialized();

@@ -1,0 +1,244 @@
+
+/* --------------------------------------------------- */
+// UTILS
+/* --------------------------------------------------- */
+
+/* 
+HEIGHT
+*/
+.jr-h-inherit{
+    height: inherit;  min-height: inherit;
+}
+
+/* 
+CURSER
+*/
+.jr-pointer{
+    cursor: pointer;
+}
+
+/* 
+HOVER EFFECTS
+*/
+.jr-depth-on-hover {
+    transition: box-shadow .25s;
+    box-shadow: 0;
+    cursor: pointer;
+
+    &:hover {transition: box-shadow .25s; box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+}
+  
+.jr-fade-on-hover{
+    opacity: 1;
+    -webkit-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+    cursor: pointer;
+
+    &:hover {opacity: .75; text-decoration: none;}
+}
+
+
+/* 
+SCROLL CONTROLS 
+*/
+.jr-scroll-v       {   overflow-y:auto; overflow-x:hidden}
+.jr-scroll-h       {   overflow-y:hidden; overflow-x:auto}
+.jr-no-scroll-v    {   overflow-y:hidden; overflow-x:auto}
+.jr-no-scroll-h    {   overflow-y:auto; overflow-x:hidden}
+.jr-no-scroll      {   overflow-y:hidden!important; overflow-x:hidden!important}
+
+/* 
+OPACITY
+*/
+.jr-opacity-0      {       opacity: 0!important;   visibility: hidden;   transition:opacity 0.4s;}
+.jr-opacity-025    {       opacity: .25!important; visibility: visible;  transition:opacity 0.4s;}
+.jr-opacity-050    {       opacity: .5!important;  visibility: visible;  transition:opacity 0.4s;}
+.jr-opacity-075    {       opacity: .75!important; visibility: visible;  transition:opacity 0.4s;}
+.jr-opacity-1      {       opacity: 1!important;   visibility: visible;  transition:opacity 0.4s;}
+
+
+/*  
+DISPLAY
+*/
+.jr-d-none         {display: none!important;}
+.jr-d-flex-1 {
+    flex:1;
+    min-height: 0px;
+}
+
+
+/* 
+RADII
+*/
+
+
+
+
+
+/* 
+TYPOGRAPHY
+*/
+
+// FONTS
+.jr-fnt-sans       {   font-family: $font-family-sans;}
+.jr-fnt-sans-alt   {   font-family: $font-family-sans-alt;}
+.jr-fnt-serif      {   font-family: $font-family-serif;}
+.jr-fnt-data       {   font-family: $font-family-data;}
+
+//WEIGHTS
+.jr-fnt-thn        {   font-weight: 100;}
+.jr-fnt-lt         {   font-weight: 300;}
+.jr-fnt-reg        {   font-weight: 400;}
+.jr-fnt-bld        {   font-weight: 700;}
+.jr-fnt-xbld       {   font-weight: 900;}
+
+// SIZING
+.jr-fnt-10         {   font-size: 10px;}
+.jr-fnt-11         {   font-size: 11px;}
+.jr-fnt-12         {   font-size: 12px;}
+.jr-fnt-13         {   font-size: 13px;}
+.jr-fnt-14         {   font-size: 14px;}
+.jr-fnt-16         {   font-size: 16px;}
+.jr-fnt-18         {   font-size: 18px;}
+.jr-fnt-20         {   font-size: 20px;}
+.jr-fnt-22         {   font-size: 22px;}
+.jr-fnt-24         {   font-size: 24px;}
+.jr-fnt-28         {   font-size: 28px;}
+.jr-fnt-32         {   font-size: 32px;}
+.jr-fnt-36         {   font-size: 36px;}
+.jr-fnt-44         {   font-size: 44px;}
+.jr-fnt-56         {   font-size: 56px;}
+.jr-fnt-64         {   font-size: 64px;}
+
+// LINE HEIGHTS
+.jr-lh-10          {   line-height: 10px;}
+.jr-lh-12          {   line-height: 12px;}
+.jr-lh-14          {   line-height: 14px;}
+.jr-lh-16          {   line-height: 16px;}
+.jr-lh-18          {   line-height: 18px;}
+.jr-lh-20          {   line-height: 20px;}
+.jr-lh-24          {   line-height: 24px;}
+.jr-lh-32          {   line-height: 32px;}
+.jr-lh-36          {   line-height: 36px;}
+.jr-lh-40          {   line-height: 40px;}
+.jr-lh-44          {   line-height: 44px;}
+.jr-lh-56          {   line-height: 56px;}
+.jr-lh-64          {   line-height: 64px;}
+
+// KERNING
+.jr-ltrspacing-snug    {   letter-spacing:-1px;}
+.jr-ltrspacing-tight   {   letter-spacing:-3px;}
+.jr-ltrspacing-normal  {   letter-spacing:0px!important;}
+
+// TRANSFORMS
+.jr-text-notransform { text-transform:none!important;}
+
+
+/*
+SPINNER
+*/
+.spinner {
+    display: block;
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 4em;
+    height: 4em;
+    padding: 7px;
+    border-radius: 50%;
+    transform: scale(.7);
+}
+
+.medium {
+    transform: scale(1)
+}
+
+.large {
+    margin-top: 4em;
+    transform: scale(1.5)
+}
+
+.spinner-wrapper {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    border-radius: 100%;
+    left: calc(50% - 2em);
+}
+
+.spinner-wrapper::after {
+    content: "";
+    background: #fff;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+} 
+
+.rotator {
+    position: relative;
+    width: 4em;
+    border-radius: 4em;
+    overflow: hidden;
+    animation: rotate 2000ms infinite linear;
+}
+
+.rotator:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $clr-brand-2;
+    border: 3px solid #fff;
+    border-radius: 100%;
+}
+
+.inner-spin {
+    background: #fff;
+    height: 4em;
+    width: 2em;
+}
+
+.inner-spin {
+    animation: rotate-left 2500ms infinite cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    border-radius: 2em 0 0 2em;
+    transform-origin: 2em 2em;
+}
+
+.inner-spin:last-child {
+    animation: rotate-right 2500ms infinite cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    margin-top: -4em;
+    border-radius: 0 2em 2em 0;
+    float: right;
+    transform-origin: 0 50%;
+}
+
+@keyframes rotate-left {
+    60%, 75%, 100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-right {
+    0%, 25%, 45% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

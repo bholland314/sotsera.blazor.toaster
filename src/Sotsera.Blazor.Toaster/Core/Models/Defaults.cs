@@ -32,10 +32,15 @@ namespace Sotsera.Blazor.Toaster.Core.Models
 
             public static class Icons
             {
-                public const string Info = "toast-info";
-                public const string Success = "toast-success";
-                public const string Warning = "toast-warning";
-                public const string Error = "toast-error";
+                public const string Info = "alert-primary";
+                public const string Success = "alert-success";
+                public const string Warning = "alert-warning";
+                public const string Error = "alert-danger";
+
+                //public const string Info = "toast-info";
+                //public const string Success = "toast-success";
+                //public const string Warning = "toast-warning";
+                //public const string Error = "toast-error";
             }
         }
     }

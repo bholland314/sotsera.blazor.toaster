@@ -22,10 +22,17 @@ namespace ServerSide
         {
             services.AddToaster(config =>
             {
+                //config.ContainerId = "alert-container";
+                config.ContainerId = "toast-container";
                 config.PositionClass = Defaults.Classes.Position.TopRight;
-                config.ToastTitleClass = Defaults.Classes.ToastTitle + " " + Defaults.Classes.TextPosition.Left;
-                config.ToastMessageClass = Defaults.Classes.ToastMessage + " " + Defaults.Classes.TextPosition.Left;
-
+                config.ToastClass = "alert";
+                config.ShowToastIndicator = true;
+                config.ToastIndicatorClass = "jr-alert-icon";
+                config.ToastIndicatorIconClass = "fal fa-check";
+                config.ToastTitleClass = Defaults.Classes.ToastTitle + " " + Defaults.Classes.TextPosition.Left + " m-0";
+                config.ToastMessageClass = Defaults.Classes.ToastMessage + " " + Defaults.Classes.TextPosition.Left + " m-0";
+                config.ToastCloseClass = "jr-alert-dismiss";
+                config.ToastCloseIconClass = "fal fa-times";
                 config.PreventDuplicates = true;
                 config.NewestOnTop = false;
             });

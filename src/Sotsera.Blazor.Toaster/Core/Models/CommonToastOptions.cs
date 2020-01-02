@@ -10,10 +10,13 @@ namespace Sotsera.Blazor.Toaster.Core.Models
         /// </summary>
         public string ToastClass { get; set; } = Defaults.Classes.Toast;
 
+        public string ToastIndicatorClass { get; set; } = "";
+        public string ToastIndicatorIconClass { get; set; } = "";
         /// <summary>
         /// This variable applies to the title and message. If false HTML will be implemented, else HTML markup will be shown. />.
         /// </summary>
         public bool EscapeHtml { get; set; } = false;
+
         /// <summary>
         /// The css class for the title. Defaults to <see cref="Defaults.Classes.ToastTitle"/>.
         /// </summary>
@@ -23,6 +26,9 @@ namespace Sotsera.Blazor.Toaster.Core.Models
         /// The css class for the message. Defaults to <see cref="Defaults.Classes.ToastMessage"/>.
         /// </summary>
         public string ToastMessageClass { get; set; } = Defaults.Classes.ToastMessage;
+
+        public string ToastCloseClass { get; set; } = "";
+        public string ToastCloseIconClass { get; set; } = "";
 
         /// <summary>
         /// The maximum opacity expressed as an integer percentage for a toast in the Visible state. Defaults to 80% where 0 means completely hidden and 100 means solid color.
@@ -48,6 +54,8 @@ namespace Sotsera.Blazor.Toaster.Core.Models
         /// States if a progressbar has to be shown during the toast Visible state. Defaults to true.
         /// </summary>
         public bool ShowProgressBar { get; set; } = true;
+
+        public bool ShowToastIndicator { get; set; } = true;
 
         /// <summary>
         /// The css class for the progress bar. Defaults to <see cref="Defaults.Classes.ProgressBarClass"/>.

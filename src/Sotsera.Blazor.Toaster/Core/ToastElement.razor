@@ -9,30 +9,42 @@
         {
             <div class="@Toast.State.ProgressBarClass" style="@Toast.State.ProgressBarStyle"></div>
         }
+        @if (Toast.State.ShowToastIndicator)
+        {
+            <div class="@Toast.Options.ToastIndicatorClass"><i class="@Toast.Options.ToastIndicatorIconClass"></i></div>
+        }
+        <div class="jr-alert-body">
+            @if (Title.IsNonEmpty())
+            {
+                if (Toast.State.Options.EscapeHtml)
+                {
+                    @*<div class="@Toast.Options.ToastTitleClass">@Title</div>*@
+                    <h6 class="@Toast.Options.ToastTitleClass">@(Title)</h6>
+                }
+                else
+                {
+                    @*<div class="@Toast.Options.ToastTitleClass">@((MarkupString)Title)</div>*@
+                    <h6 class="@Toast.Options.ToastTitleClass">@((MarkupString)Title)</h6>
+                }
+            }
+            @if (Message.IsNonEmpty())
+            {
+                if (Toast.State.Options.EscapeHtml)
+                {
+                    @*<div class="@Toast.Options.ToastMessageClass">@Message</div>*@
+                    <p class="@Toast.Options.ToastMessageClass">@Message</p>
+                }
+                else
+                {
+                    @*<div class="@Toast.Options.ToastMessageClass">@((MarkupString)Message)</div>*@
+                    <p class="@Toast.Options.ToastMessageClass">@((MarkupString)Message)</p>
+                }
+            }
+        </div>
         @if (Toast.State.ShowCloseIcon)
         {
-            <button type="button" class="@Toast.State.CloseIconClass" @onclick="CloseIconClicked">×</button>
+            <div class="@Toast.Options.ToastCloseClass"><i class="@Toast.Options.ToastCloseIconClass" data-dismiss="alert"></i></div>
+            @*<button type="button" class="@Toast.State.CloseIconClass" @onclick="CloseIconClicked">×</button>*@
         }
-        @if (Title.IsNonEmpty())
-        {
-            if (Toast.State.Options.EscapeHtml)
-            {
-                <div class="@Toast.Options.ToastTitleClass">@Title</div>
-            }
-            else
-            {
-                <div class="@Toast.Options.ToastTitleClass">@((MarkupString)Title)</div>
-            }
-        }
-        @if (Message.IsNonEmpty())
-        {
-            if (Toast.State.Options.EscapeHtml)
-            {
-                <div class="@Toast.Options.ToastMessageClass">@Message</div>
-            }
-            else
-            {
-                <div class="@Toast.Options.ToastMessageClass">@((MarkupString)Message)</div>
-            }
-        }
+
     </div>

@@ -14,6 +14,7 @@ namespace Sotsera.Blazor.Toaster.Core.Models
         private bool _preventDuplicates;
         private int _maxDisplayedToasts;
         private string _positionClass;
+        private string _containerId;
 
         internal event Action OnUpdate;
 
@@ -52,6 +53,19 @@ namespace Sotsera.Blazor.Toaster.Core.Models
             set
             {
                 _maxDisplayedToasts = value;
+                OnUpdate?.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// The id driving the toast layout in the screen.
+        /// </summary>
+        public string ContainerId
+        {
+            get => _containerId;
+            set
+            {
+                _containerId = value;
                 OnUpdate?.Invoke();
             }
         }

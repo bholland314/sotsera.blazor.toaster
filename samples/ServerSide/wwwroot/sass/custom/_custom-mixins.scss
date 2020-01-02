@@ -1,0 +1,172 @@
+/* --------------------------------------------------- */
+// CUSTOM MIXNS
+/* --------------------------------------------------- */
+
+
+/* 
+SPACING
+*/
+// paddings
+@mixin p    ($val) {          padding: $val}
+@mixin p-t  ($val) {          padding-top: $val}
+@mixin p-b  ($val) {          padding-bottom: $val}
+@mixin p-l  ($val) {          padding-left: $val}
+@mixin p-r  ($val) {          padding-right: $val;}
+@mixin p-lr ($val) {          padding-left: $val;padding-right: $val;}
+@mixin p-tb ($val) {          padding-top: $val;padding-bottom: $val;}
+
+// margins
+@mixin m    ($val) {          margin: $val}
+@mixin m-t  ($val) {          margin-top: $val}
+@mixin m-b  ($val) {          margin-bottom: $val}
+@mixin m-l  ($val) {          margin-left: $val}
+@mixin m-r  ($val) {          margin-right: $val;}
+@mixin m-lr ($val) {          margin-left: $val;margin-right: $val;}
+@mixin m-tb ($val) {          margin-top: $val;margin-bottom: $val;}
+
+
+/*  
+TYPOGRAPHY
+*/
+
+//KERNING
+@mixin ltrspacing ($val)  {   letter-spacing: $val;}
+
+
+//TRUNCATING
+//specify your boundry with a max width value
+@mixin truncate($truncation-boundary) {
+                    max-width: $truncation-boundary;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+}
+
+
+// SIZING
+@mixin fnt-sz ($val)  {   font-size: $val;}
+
+// LINE HEIGHTS
+@mixin lh($val)       {   line-height: $val}
+
+/* 
+OPACITY
+*/
+@mixin opacity ($val) {       opacity: $val}
+
+/*  
+BORDERS
+*/
+//border radii
+@mixin border-radius($radius) {
+                      -webkit-border-radius: $radius;
+                         -moz-border-radius: $radius;
+                              border-radius: $radius;
+}
+@mixin border-radiuses ($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+                        -webkit-border-top-right-radius:    $topright;
+                        -webkit-border-bottom-right-radius: $bottomright;
+                        -webkit-border-bottom-left-radius:  $bottomleft;
+                        -webkit-border-top-left-radius:     $topleft;
+
+                        -moz-border-radius-topright:        $topright;
+                        -moz-border-radius-bottomright:     $bottomright;
+                        -moz-border-radius-bottomleft:      $bottomleft;
+                        -moz-border-radius-topleft:         $topleft;
+
+                        border-top-right-radius:            $topright;
+                        border-bottom-right-radius:         $bottomright;
+                        border-bottom-left-radius:          $bottomleft;
+                        border-top-left-radius:             $topleft;
+
+                        -moz-background-clip:    padding; 
+                        -webkit-background-clip: padding-box; 
+                        background-clip:         padding-box; 
+}
+
+/* 
+SIZE
+equal height and width
+*/
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* 
+SHAPES
+*/
+@mixin rectangle($width, $height, $color) {
+	width: $width;
+	height: $height;
+	background-color: $color;
+}
+
+@mixin square($size, $color) {
+	@include rectangle($size, $size, $color);
+}
+
+@mixin circle($size, $color) {
+	@include square($size, $color);
+	-webkit-border-radius: $size / 2;
+	-moz-border-radius: $size / 2;
+	border-radius: $size / 2;
+}
+
+/*  
+ROTATION
+*/
+@mixin rotate($val){
+  -webkit-transform: rotate($val);
+  -moz-transform: rotate($val);
+  -ms-transform: rotate($val);
+  transform: rotate($val);
+}
+
+
+/*  
+BACKGROUNDS
+*/
+// BACKGROUND GRADIENT
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+/*
+INPUT PLACEHOLDER STYLING
+*/
+// to use, see https://stackoverflow.com/questions/17181849/placeholder-mixin-scss-css
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+

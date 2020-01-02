@@ -34,6 +34,8 @@ namespace Sotsera.Blazor.Toaster.Core.Models
             ToastClass = configuration.ToastClass;
             ToastTitleClass = configuration.ToastTitleClass;
             ToastMessageClass = configuration.ToastMessageClass;
+            ToastCloseClass = configuration.ToastCloseClass;
+            ToastCloseIconClass = configuration.ToastCloseIconClass;
             MaximumOpacity = configuration.MaximumOpacity;
 
             ShowTransitionDuration = configuration.ShowTransitionDuration;
@@ -43,6 +45,7 @@ namespace Sotsera.Blazor.Toaster.Core.Models
             HideTransitionDuration = configuration.HideTransitionDuration;
 
             ShowProgressBar = configuration.ShowProgressBar;
+            ShowToastIndicator = configuration.ShowToastIndicator;
             ProgressBarClass = configuration.ProgressBarClass;
 
             ShowCloseIcon = configuration.ShowCloseIcon;

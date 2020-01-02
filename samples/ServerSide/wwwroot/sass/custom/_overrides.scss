@@ -1,0 +1,348 @@
+/* --------------------------------------------------- */
+// CUSTOM OVERRIDES
+/* --------------------------------------------------- */
+
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  font-family: $font-family-sans-alt;
+}
+h1, .h1 { font-weight: 800; } //bold
+h2, .h2 { font-weight: 500; } //book
+h3, .h3 { font-weight: 600; } //medium 
+h4, .h4 { font-weight: 500; } //book
+h5, .h5 { font-weight: 800; } //bold 
+h6, .h6 { 
+  font-family: $font-family-sans;
+  font-weight: 800; //bold
+}
+
+.lead {
+  font-family: $font-family-sans-alt;
+  font-weight: 300; //light
+}
+
+.display-1, .display-2, .display-3, .display-4 {
+  font-family: $font-family-sans-alt;
+  font-weight: 300; //light
+}
+
+
+
+
+/* 
+BOOTSTRAP COMPONENT OVERRIDES 
+*/
+
+// BUTTONS
+// make text uppercase and pill shapge as per design system
+.btn {
+	text-transform: uppercase; 
+	font-size:.9rem;
+	@extend .rounded-pill;
+}
+
+//circle button based on bs button
+.jr-circle-button {
+	@include size(36px);
+	@extend .rounded-circle;
+	@extend .p-0;
+	font-size:19px;
+	position: relative;
+}
+.jr-new-notice {
+	&:before {
+		content: "";
+		@extend .bg-warning;
+		@extend .rounded-circle;
+		position: absolute;
+		height: 11px;
+		width:11px;
+		top: 0px;
+		right: 0px;
+		z-index: 1; // this for ie 11 support
+	}
+}
+
+// LEFT & RIGHT SIDEBARS
+// this converts a bootstrap 3 modal into a sidebar
+// Add "left" or "right" in modal parent div, after class="modal".
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: #{$drawer-width}px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	-ms-transform: translate3d(0%, 0, 0);
+	-o-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+
+//FULL-SCREEN MODAL
+// Add "full" in modal parent div, after class="modal".
+.modal.full .modal-dialog {
+	position: fixed;
+	margin: auto;
+	max-width:100%;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	-webkit-transform: translate3d(0%, 0, 0);
+	-ms-transform: translate3d(0%, 0, 0);
+	-o-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+.modal.full .modal-content {
+    //min-height: 100vh;
+}
+
+// Branding for the sidebars and full
+.modal.left .modal-content,
+.modal.right .modal-content,
+.modal.full .modal-content {
+	height: 100%;
+	background-color: $clr-brand-2;
+	border: none;
+	background-image: url("../../_assets/img/bg-drawer-texture.png");
+	background-position: 0% 0%;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	//structure (header,body,footer declarations
+	.jr-drawer-header {
+		height: 55px;
+		@extend .d-flex; 
+		@extend .justify-content-between;
+		@extend .align-items-center;
+		@extend .flex-row;
+		@include p-lr (10px);  
+		@extend .text-light;
+		// beveled rule
+		background-image: url("../../_assets/img/beveled-rule-purple.png");
+		background-position: 0% 100%;
+		background-repeat: repeat-x;
+
+		.jr-drawer-header-content-container {
+			flex:1;
+			@extend .d-flex; 
+			@extend .flex-row;
+			@extend .align-items-center;
+			//set to invisible to allow fade int
+			opacity: 0;
+			-webkit-transition: opacity 0.4s;
+			-moz-transition: opacity 0.4s;
+			transition: opacity 0.4s;
+
+			.jr-avatar {
+				@include circle(32px, $clr-brand-default);
+				@include m-r  (3px);
+			}
+			.jr-drawer-title {
+				@extend .font-weight-light;
+				@extend .m-0; 
+			}
+		}
+		.jr-drawer-header-close-container {
+			width:36px;
+		}
+	}
+	
+
+	.jr-drawer-body {
+		flex:1;
+		min-height: 0px;
+		//make app content region the scrollable region of the app
+		//@extend .jr-scroll-v;
+		//set to invisible to allow fade int
+		opacity: 0;
+		-webkit-transition: opacity 0.4s;
+		-moz-transition: opacity 0.4s;
+		transition: opacity 0.4s;
+	}
+
+	.jr-drawer-footer-links {
+		// beveled rule
+		background-image: url("../../_assets/img/beveled-rule-purple.png");
+		background-position: 0% 0%;
+		background-repeat: repeat-x;
+
+		//spacing
+		margin-top: 15px;
+		padding-top:10px;
+
+		// color
+		.btn-link, span {
+			color: $gray-500;
+			@extend .jr-text-notransform;
+			@extend .text-left;
+		}
+		
+	}
+
+}
+
+//round corners accordingly
+.modal.left .modal-content {
+  @include border-radiuses (20px, 20px, 0, 0); 
+}
+.modal.right .modal-content {
+  @include border-radiuses (0,0, 20px, 20px); 
+}
+.modal.full .modal-content {
+	@include border-radiuses (0,0, 0, 0); 
+  }
+
+//animate accordingly
+.modal.left.fade .modal-dialog {
+	left: -#{$drawer-width}px;
+	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-o-transition: opacity 0.3s linear, left 0.3s ease-out;
+	transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+.modal.right.fade .modal-dialog {
+	right: -#{$drawer-width}px;
+	-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+	-moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+	-o-transition: opacity 0.3s linear, right 0.3s ease-out;
+	transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+.modal.full.fade .modal-dialog {
+	top: 100%;
+	-webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
+	-moz-transition: opacity 0.3s linear, top 0.3s ease-out;
+	-o-transition: opacity 0.3s linear, top 0.3s ease-out;
+	transition: opacity 0.3s linear, top 0.3s ease-out;
+}
+//position accordingly
+.modal.left.fade.show .modal-dialog {
+	left: 0;
+}
+.modal.right.fade.show .modal-dialog {
+	right: 0;
+}
+.modal.full.fade.show .modal-dialog {
+	top: 0;
+}
+//END; LEFT & RIGHT SIDEBARS
+
+
+// ALERT - add support for font awesome icon and better dismiss icon
+.alert {
+	@extend .d-flex; 
+	@extend .justify-content-between;
+	@extend .align-items-center;
+	@extend .flex-row;
+	padding: 0.75rem .75rem;
+	//icon
+	.jr-alert-icon {
+		width:22px;
+		text-align: center;
+		font-size:18px;
+	}
+	//body
+	.jr-alert-body {
+		flex:1;
+		@extend .d-flex; 
+		@extend .flex-column;
+		/* @extend .align-items-center;
+		@extend .justify-content-start; */
+		padding: 0.0rem 0.5rem;
+	}
+	//dismiss
+	.jr-alert-dismiss {
+		width:22px;
+		text-align: center;
+		font-size:18px;
+	}
+}
+
+
+///////////////////////////////
+
+
+
+// DROPDOWNS
+// add icons on left and right styles item label
+.dropdown-menu .jr-dropdown-item {
+	height: 36px;
+	@extend .d-flex; 
+	@extend .flex-row;
+	@extend .align-items-center;
+	//label icon
+	.jr-dropdown-item-label-icon {
+		position: absolute;
+		left:6px;
+		color: $gray-600;
+	}
+	//label text color
+	span {
+		color: $gray-600;
+		@extend .mr-1;
+	}
+	//chevron icon
+	.fa-chevron-right {
+		position: absolute;
+		right:6px;
+		color: $gray-600;
+	}
+}
+
+
+///////////////////////////////
+
+// LIST GROUP FOR USE AS DRAWER MENU SCHEMA
+.modal-content {
+
+	// remove bgs, borders, change active state, etc..
+	.list-group-item, .list-group-item.disabled, .list-group-item.active {
+		@extend .bg-transparent;
+		@extend .border-0;
+		padding: 0.6rem 1.25rem;
+	}
+	//text colors
+	.list-group-item-action {
+		color: $gray-100;
+
+	}
+	.list-group-item.active { 
+		color: $clr-brand-5;
+	}
+	
+	.list-group-item-action:not(.collapsed) { 
+		color: $clr-brand-5;
+	}
+
+
+	//icon
+	.list-group-item i {
+		@extend .jr-opacity-050;
+		@extend .mr-2;
+	}
+	//badge
+	.list-group-item .badge {
+		@extend .ml-1;
+	}
+
+	//sub-list
+	.jr-sublist-group .list-group-item {
+		padding-left: 2.1rem;
+	}
+	
+}
+
+
+
+
+
+///////////////////////////////
+
+/* 
+KENDO SPECIFC OVERRIDES 
+*/
+//mobile search autocomplete - change color of placeholder text
+#mobileGlobalSearch {
+	@include placeholder {
+		color: rgba(255, 255, 255, 0.3);
+	}
+}
